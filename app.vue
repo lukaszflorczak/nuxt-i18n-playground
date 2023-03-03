@@ -1,5 +1,19 @@
 <template>
-  <div>
+  <div class="row">
+    <code>switchLocalePath()</code>
+
+    <nuxt-link
+      v-for="locale in $i18n.locales"
+      :key="locale.code"
+      :to="switchLocalePath(locale.code)"
+    >
+      {{ locale.name }}
+    </nuxt-link>
+  </div>
+
+  <div class="row">
+    <code>setLocale()</code>
+
     <button
       v-for="locale in $i18n.locales"
       :key="locale.code"
@@ -10,17 +24,17 @@
   </div>
 
   <nuxt-page />
-
-  <p>
-    Test:
-    <nuxt-link to="/disabled-localized-route">
-      Page with disabled localized route
-    </nuxt-link>
-  </p>
 </template>
 
+<script lang="ts" setup>
+  const switchLocalePath = useSwitchLocalePath()
+</script>
+
 <style lang="css" scoped>
-button {
-  margin-right: 16px;
-}
+  .row {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
 </style>
