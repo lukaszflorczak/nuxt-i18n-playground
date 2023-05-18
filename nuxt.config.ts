@@ -1,6 +1,12 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: ['@nuxtjs/i18n'],
+  nitro: {
+    prerender: {
+      routes: [],
+      ignore: ['/'],
+    },
+  },
   i18n: {
     locales: [
       { code: 'en', flag: 'us', iso: 'en-US', file: 'en.json', name: 'English' },
